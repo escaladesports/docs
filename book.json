@@ -1,0 +1,6 @@
+{
+	"plugins": [
+		"html-minifier",
+		"-sharing"
+	]
+}
