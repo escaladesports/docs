@@ -1,0 +1,16 @@
+{
+  "name": "escalade-docs",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Kennedy Rose <krose@escaladesports.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "gitbook build",
+    "dev": "gitbook serve",
+    "serve": "cd _book && static-server --open"
+  },
+  "dependencies": {
+    "gitbook-cli": "^2.3.2",
+    "static-server": "^2.2.1"
+  }
+}
