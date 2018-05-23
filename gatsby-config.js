@@ -1,6 +1,6 @@
 module.exports = {
 	siteMetadata: {
-		title: `Escalade Sports`,
+		title: `Escalade Web Engineering Docs`,
 	},
 	plugins: [
 		'gatsby-plugin-styled-jsx-postcss',

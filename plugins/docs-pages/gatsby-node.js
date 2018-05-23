@@ -13,6 +13,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 				edges{
 					node{
 						id
+						html
 						fields{
 							slug
 						}
@@ -57,10 +58,30 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 	) {
 		let value = createFilePath({ node, getNode })
 		value = removeFirstNumbers(value)
+		let content = node.internal.content.split(`\n`)
+		let title = `Untitled Document`
+		for(let i = 0; i < content.length; i++){
+			if(content[i].indexOf(`#`) === 0){
+				title = content[i].split(` `)
+				title.shift()
+				title = title.join(` `)
+				break
+			}
+		}
 		createNodeField({
 			name: `slug`,
 			node,
 			value,
+		})
+		createNodeField({
+			name: `type`,
+			node,
+			value: `doc`,
+		})
+		createNodeField({
+			name: `title`,
+			node,
+			value: title,
 		})
 	}
 }
