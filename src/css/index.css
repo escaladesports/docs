@@ -1,0 +1,57 @@
+:root{
+	/* Colors */
+	--colorPrimary: #f60;
+	--colorSecondary: #333;
+	--colorWhite: #fff;
+	--colorPrimaryActive: color(var(--colorPrimary) lightness(70%));
+
+	/* Fonts */
+	--fontFamilyPrimary: 'oswald';
+	--fontFamilySecondary: 'open sans';
+
+	/* Mixins */
+	--highlightMixin: {
+		color: var(--colorWhite);
+		background-color: var(--colorPrimary);
+	};
+	--h1Mixin: {
+		font-family: var(--fontFamilyPrimary);
+		font-size: 2em;
+	};
+	--h2Mixin: {
+		font-family: var(--fontFamilyPrimary);
+	};
+	--h3Mixin: {
+		font-family: var(--fontFamilyPrimary);
+	};
+	--linkMixin: {
+		color: var(--colorPrimary);
+		&:focus,
+		&:hover,
+		&:active{
+			text-decoration: none;
+			color: var(--colorPrimaryActive);
+		}
+	};
+	--buttonMixin: {
+		font-family: var(--fontFamilyPrimary);
+		background-color: var(--colorPrimary);
+		color: var(--colorWhite);
+		cursor: pointer;
+		border-radius: 8px;
+		padding: 10px 30px;
+		font-size: 1.1em;
+		text-transform: uppercase;
+		border: 0;
+		outline: 0;
+		user-select: none;
+		&:focus,
+		&:hover,
+		&:active{
+			background-color: var(--colorPrimaryActive);
+		}
+		&:active{
+			transform: translate(0, 2px);
+		}
+	};
+}

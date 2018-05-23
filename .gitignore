@@ -24,10 +24,6 @@ env.js
 _optimize
 .babelrc
 .postcssrc
-./gatsby-node.js
-./gatsby-browser.js
-./gatsby-ssr.js
-_book
 
 # Temporary
 temp
