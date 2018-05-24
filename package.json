@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "author": "Kennedy Rose <krose@escaladesports.com>",
   "scripts": {
-    "build": "npm run config && gatsby build",
+    "build": "run-p config patch && gatsby build",
     "clean": "run-p clean:gatsbyCache clean:nodeCache",
     "clean:gatsbyCache": "rm -rf .cache",
     "clean:nodeCache": "rm -rf node_modules/.cache",
@@ -11,6 +11,7 @@
     "dev": "run-p config clean:nodeCache &&  npm run dev:gatsby",
     "dev:gatsby": "gatsby develop --open",
     "dev:css": "node utils/watch-css",
+    "patch": "sed -i -e 's/if(c\\.initial) return;/if(!c||c.initial) return;/g' ./node_modules/extract-text-webpack-plugin/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -40,8 +41,8 @@
     "npm-run-all": "^4.1.3",
     "prism-themes": "^1.0.1",
     "prismjs": "^1.14.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
     "react-helmet": "^5.2.0",
     "touch": "^3.1.0"
   },
