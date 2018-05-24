@@ -4,15 +4,16 @@ import Nav from '../components/nav'
 
 class DocsTemplate extends React.Component{
 	render(){
-		let data = this.props.data
-		let content = data.markdownRemark
+		const data = this.props.data
+		const content = data.markdownRemark
+		const { schema } = this.props.pathContext
 		return(
 			<Fragment>
 				<Helmet>
 					<title>{content.fields.title} · {data.site.siteMetadata.title}</title>
 				</Helmet>
 				<main>
-					<Nav />
+					<Nav schema={schema} />
 					<article>
 						<div
 							className='content'

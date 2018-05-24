@@ -19,6 +19,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 						fields{
 							slug
 							order
+							title
 						}
 					}
 				}
@@ -35,8 +36,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 	}
 
 	let pages = res.data.allMarkdownRemark.edges
-	let categories = createCategories(pages)
-	console.log(JSON.stringify(categories, null, 3))
+	let schema = createCategories(pages)
 
 	pages.forEach((obj, key) => {
 		obj = obj.node
@@ -50,22 +50,24 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 				slug,
 				previous,
 				next,
+				schema,
 			},
 		})
 	})
-	process.exit(0)
 }
 
 function createCategories(pages) {
 	const categories = []
 	const paths = []
 	const slugs = []
+	const titles = {}
 	pages.forEach(page => {
 		let slug = page.node.fields.slug.split(`/`)
 		slug.shift()
 		slug.pop()
 		slug.push(page.node.fields.order)
 		slugs.push(slug)
+		titles[slug] = page.node.fields.title
 	})
 	slugs.sort((a, b) => {
 		if(a.length > b.length) return 1
@@ -78,15 +80,19 @@ function createCategories(pages) {
 	})
 	slugs.shift()
 	slugs.forEach(slug => {
+		let title = titles[slug]
 		let cursor = categories
 		slug.pop()
+		let origSlug = `/${slug.join(`/`)}`
 		let path = slug.pop()
 		slug.forEach(dir => {
 			cursor = findPath(cursor, dir)
 		})
 		cursor.push({
 			path,
-			contents: []
+			slug: origSlug,
+			title,
+			contents: [],
 		})
 	})
 	return categories
