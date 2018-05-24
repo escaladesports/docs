@@ -30,6 +30,7 @@ class NavList extends React.Component {
 						padding: 0;
 						margin: 0;
 						padding-left: 15px;
+						font-size: .9em;
 						:global(ul){
 							border-left: 2px solid #e6e6e6;
 							margin: 5px 0;

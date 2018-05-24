@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet'
 import Nav from '../components/nav'
+import Link from 'gatsby-link'
 
 class DocsTemplate extends React.Component{
 	render(){
 		const data = this.props.data
 		const content = data.markdownRemark
-		const { schema } = this.props.pathContext
+		const { schema, next, previous } = this.props.pathContext
+		console.log(this.props.pathContext)
 		return(
 			<Fragment>
 				<Helmet>
@@ -15,11 +17,21 @@ class DocsTemplate extends React.Component{
 				<main>
 					<Nav schema={schema} />
 					<article>
-						<div
-							className='content'
-							dangerouslySetInnerHTML={{
-								__html: content.html
-							}} />
+						<div className='content'>
+							<div dangerouslySetInnerHTML={{ __html: content.html }} />
+							<div className='prevNext'>
+								{previous &&
+									<div className='prev'>
+										<Link to={previous.slug}>Previous: {previous.title}</Link>
+									</div>
+								}
+								{next &&
+									<div className='next'>
+										<Link to={next.slug}>Next: {next.title}</Link>
+									</div>
+								}
+							</div>
+						</div>
 					</article>
 				</main>
 				<style jsx>{`
@@ -32,6 +44,24 @@ class DocsTemplate extends React.Component{
 					article{
 						width: 100%;
 						padding-left: var(--navWidth);
+					}
+					.prev, .next{
+						margin-top: 10px;
+					}
+					@media(min-width:1000px){
+						.prevNext{
+							&:after{
+								content: '';
+								display: block;
+								clear: both;
+							}
+						}
+						.prev{
+							float: left;
+						}
+						.next{
+							float: right;
+						}
 					}
 				`}</style>
 			</Fragment>

@@ -36,13 +36,36 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 	}
 
 	let pages = res.data.allMarkdownRemark.edges
-	let schema = createCategories(pages)
+	let categories = createCategories(pages)
+	let flatCategories = flattenCategories(categories)
+
+	// Add homepage to flat categories
+	pages.forEach(page => {
+		const { slug, order, title } = page.node.fields
+		if (order === -1){
+			flatCategories.unshift({
+				slug,
+				title,
+			})
+		}
+	})
 
 	pages.forEach((obj, key) => {
 		obj = obj.node
-		let previous = key === pages.length - 1 ? null : pages[key + 1].node
-		let next = key === 0 ? null : pages[key - 1].node
 		let { slug, order } = obj.fields
+		let previous
+		let next
+		flatCategories.forEach((cat, key) => {
+			if (cat.slug === slug || `${cat.slug}/` == slug) {
+				if(key > 0){
+					previous = flatCategories[key - 1]
+				}
+				if(key < flatCategories.length - 1){
+					next = flatCategories[key + 1]
+				}
+			}
+		})
+
 		createPage({
 			path: slug,
 			component,
@@ -50,10 +73,23 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 				slug,
 				previous,
 				next,
-				schema,
+				schema: categories,
 			},
 		})
 	})
+}
+
+function flattenCategories(arr, res = []){
+	arr.forEach(item => {
+		res.push({
+			slug: item.slug,
+			title: item.title,
+		})
+		if(item.contents.length){
+			flattenCategories(item.contents, res)
+		}
+	})
+	return res
 }
 
 function createCategories(pages) {
@@ -67,7 +103,7 @@ function createCategories(pages) {
 		slug.pop()
 		slug.push(page.node.fields.order)
 		slugs.push(slug)
-		titles[slug] = page.node.fields.title
+		titles[slug.join(`/`)] = page.node.fields.title
 	})
 	slugs.sort((a, b) => {
 		if(a.length > b.length) return 1
@@ -78,9 +114,15 @@ function createCategories(pages) {
 		if(orderA < orderB) return -1
 		return 0
 	})
+
+	// Add index
+	let title = titles[slugs[0].join(`/`)]
+	slugs[0].pop()
+	let origSlug = `/${slugs[0].join(`/`)}`
+
 	slugs.shift()
 	slugs.forEach(slug => {
-		let title = titles[slug]
+		let title = titles[slug.join(`/`)]
 		let cursor = categories
 		slug.pop()
 		let origSlug = `/${slug.join(`/`)}`
