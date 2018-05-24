@@ -1,5 +1,3 @@
-# escaladesports.com
+# Escalade Sports Docs
 
-## Notes
-
-- Dev must be restarted whenever a .css file changes
+[https://escalade-docs.netlify.com/](https://escalade-docs.netlify.com/)
