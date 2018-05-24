@@ -1,4 +1,4 @@
-# 3. Types of Applications
+# Types of Applications
 
 We build everything with the Unix philosophy in mind. So every part of an application only does one thing and does it well. If additional functionality is needed, then a new module or serverless function is built rather than adding it to an existing module/function that is already performing a separate task.
 

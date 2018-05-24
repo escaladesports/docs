@@ -1,9 +1,9 @@
 :root{
 	/* Colors */
-	--colorPrimary: #f60;
+	--colorPrimary: #52b8fc;
 	--colorSecondary: #333;
 	--colorWhite: #fff;
-	--colorPrimaryActive: color(var(--colorPrimary) lightness(70%));
+	--colorPrimaryActive: color(var(--colorPrimary) blackness(30%));
 
 	/* Fonts */
 	--fontFamilyPrimary: 'oswald';

@@ -1,4 +1,4 @@
-# 2. Libraries/Frameworks
+# Libraries/Frameworks
 
 ## React.js
 
