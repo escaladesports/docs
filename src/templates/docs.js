@@ -6,7 +6,6 @@ import Link from 'gatsby-link'
 class DocsTemplate extends React.Component{
 	render(){
 		const data = this.props.data
-		console.log(data)
 		const content = data.markdownRemark
 		const { schema, next, previous } = this.props.pathContext
 		return(

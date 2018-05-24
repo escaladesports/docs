@@ -15,7 +15,6 @@ class Layout extends React.Component{
 
 				<style jsx global>{`
 					@import 'src/css/global';
-					@import 'prism-themes/themes/prism-ghcolors';
 				`}</style>
 
 			</Fragment>
