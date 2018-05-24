@@ -13,7 +13,7 @@
     "dev:css": "node utils/watch-css",
     "netlify": "opn https://app.netlify.com/sites/escalade-docs/deploys",
     "patch": "sed -i -e 's/if(c\\.initial) return;/if(!c||c.initial) return;/g' ./node_modules/extract-text-webpack-plugin/index.js",
-    "serve": "cd public && static-server",
+    "serve": "cd public && static-server --open --no-cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "gatsby-plugin-sitemap": "^1.2.23",
     "gatsby-plugin-styled-jsx-postcss": "^1.0.4",
     "gatsby-remark-copy-linked-files": "^1.5.32",
+    "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-prismjs": "^2.0.2",
     "gatsby-remark-smartypants": "^1.4.12",
     "gatsby-source-filesystem": "^1.5.36",
