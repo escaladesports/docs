@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Link from 'gatsby-link'
 
 class NavList extends React.Component {
@@ -16,13 +16,26 @@ class NavList extends React.Component {
 	}
 	render() {
 		return (
-			<ul>
-				{this.props.children.map(item => (
-					<li key={item.slug} className={this.state.path.indexOf(item.slug) === 0 ? `active`: ``}>
-						<Link to={item.slug}>{item.title}</Link>
-						<NavList>{ item.contents }</NavList>
-					</li>
-				))}
+			<Fragment>
+				<ul>
+					{this.props.children.map(item => {
+						let activeClass = ``
+						if(item.slug === `/`){
+							if(this.state.path === `/`){
+								activeClass = `active`
+							}
+						}
+						else if (this.state.path.indexOf(item.slug) === 0) {
+							activeClass = `active`
+						}
+						return (
+							<li key={item.slug} className={activeClass}>
+								<Link to={item.slug}>{item.title}</Link>
+								<NavList>{item.contents}</NavList>
+							</li>
+						)
+					})}
+				</ul>
 				<style jsx>{`
 					@import 'src/css';
 					ul{
@@ -50,7 +63,7 @@ class NavList extends React.Component {
 						}
 					}
 				`}</style>
-			</ul>
+			</Fragment>
 		)
 	}
 }

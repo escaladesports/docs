@@ -39,17 +39,6 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 	let categories = createCategories(pages)
 	let flatCategories = flattenCategories(categories)
 
-	// Add homepage to flat categories
-	pages.forEach(page => {
-		const { slug, order, title } = page.node.fields
-		if (order === -1){
-			flatCategories.unshift({
-				slug,
-				title,
-			})
-		}
-	})
-
 	pages.forEach((obj, key) => {
 		obj = obj.node
 		let { slug, order } = obj.fields
@@ -116,11 +105,11 @@ function createCategories(pages) {
 	})
 
 	// Add index
-	let title = titles[slugs[0].join(`/`)]
-	slugs[0].pop()
-	let origSlug = `/${slugs[0].join(`/`)}`
+	//let title = titles[slugs[0].join(`/`)]
+	//slugs[0].pop()
+	//let origSlug = `/${slugs[0].join(`/`)}`
 
-	slugs.shift()
+	//slugs.shift()
 	slugs.forEach(slug => {
 		let title = titles[slug.join(`/`)]
 		let cursor = categories

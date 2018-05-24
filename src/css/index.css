@@ -20,13 +20,16 @@
 	};
 	--h1Mixin: {
 		font-family: var(--fontFamilyPrimary);
+		text-transform: uppercase;
 		font-size: 2em;
 	};
 	--h2Mixin: {
 		font-family: var(--fontFamilyPrimary);
+		text-transform: uppercase;
 	};
 	--h3Mixin: {
 		font-family: var(--fontFamilyPrimary);
+		text-transform: uppercase;
 	};
 	--linkMixin: {
 		color: var(--colorPrimary);

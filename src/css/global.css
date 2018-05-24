@@ -26,6 +26,15 @@ p{
 img{
 	max-width: 100%;
 }
+h1{
+	@apply --h1Mixin;
+}
+h2{
+	@apply --h2Mixin;
+}
+h3{
+	@apply --h3Mixin;
+}
 ::selection{
 	@apply --highlightMixin;
 }
