@@ -29,3 +29,5 @@ img{
 ::selection{
 	@apply --highlightMixin;
 }
+
+@import 'prism-themes/themes/prism-atom-dark';

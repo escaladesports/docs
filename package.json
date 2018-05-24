@@ -13,6 +13,7 @@
     "dev:css": "node utils/watch-css",
     "netlify": "opn https://app.netlify.com/sites/escalade-docs/deploys",
     "patch": "sed -i -e 's/if(c\\.initial) return;/if(!c||c.initial) return;/g' ./node_modules/extract-text-webpack-plugin/index.js",
+    "serve": "cd public && static-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -46,6 +47,7 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-helmet": "^5.2.0",
+    "static-server": "^2.2.1",
     "touch": "^3.1.0"
   },
   "devDependencies": {}
