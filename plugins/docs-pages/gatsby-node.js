@@ -2,6 +2,38 @@ const { createFilePath } = require('gatsby-source-filesystem')
 const { resolve } = require('path')
 const cwd = process.cwd()
 
+function propDrill(){
+	let obj = arguments[0]
+	let l = arguments.length
+	let last = l - 1
+
+	for(let i = 1; i < l; i++){
+		let part = arguments[i]
+		if (typeof obj[part] === 'object'){
+			obj = obj[part]
+			continue
+		}
+		if (i === last){
+			return obj[part]
+		}
+		return
+	}
+}
+
+
+let obj = {
+	foo: [{
+		test: 'asdf'
+	}]
+}
+
+let val = propDrill(obj, 'foo', 0, 'test')
+
+console.log(val)
+
+
+process.exit(0)
+
 exports.createPages = async ({ graphql, boundActionCreators }) => {
 	const { createPage } = boundActionCreators
 	const component = resolve(`./src/templates/docs.js`)
