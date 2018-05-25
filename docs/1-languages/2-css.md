@@ -1,4 +1,4 @@
-## CSS
+# CSS
 
 We use standard CSS in any projects that require styling. Similar to how we transpile JS, we also transpile CSS with [PostCSS](https://postcss.org/) and [cssnext](http://cssnext.io/) to add in newer features like variables and nesting. This essentially does the same thing as preprocessing languages like Sass and Less, however has the advantage of being valid CSS syntax in the future. At some point we will be able to drop transpiling for CSS altogether but still use the same features.
 
