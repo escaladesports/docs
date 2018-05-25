@@ -90,20 +90,29 @@ try{ getToOtherSide() }
 catch(err){ console.error(err) }
 ```
 
+### Modules
+
+Always use `import` over `require`. However there are times when you might need `module.exports` over `export`, so there are no hard rules on how to export at the moment.
+
+### Comments
+
+If you can adequately describe a function with its own name or file name, do so. If you can't, it's possible you just need to refactor into multiple smaller functions and/or files. If you can't do that either, write comments.
+
 ### Whitespace
 
-Use hard tables for whitespace. The visual size of these can be easily changed for each developer. The exceptions to this rule:
+Use hard tabs for whitespace. The visual size of these can be easily changed for each developer. The exceptions to this rule:
 
 - Markdown: Code snippets get hard to read in GitHub when using tabs. Use 3 spaces instead for legibility.
 - JSON: Use 2 spaces with JSON files to match what npm and Yarn output.
 
 ### Semicolons
 
-JavaScript automatically ends statements with line breaks, so semicolons are not needed. The scenarios where this could potentially break your code are not only infrequent but also bad practice:
-
-- Never start lines with `(`: This is sometimes used for executing anonymous functions. However, you should never use anonymous functions since it can make stack traces hard to follow. Functions should always be named and executed separately.
-- Never start lines with `[`: Arrays should always be stored in a reference for logging when needed.
+JavaScript automatically ends statements with line breaks, so semicolons are not used. Always prefix lines that start with `(` `[` or `` ` `` with a semicolon.
 
 ### File Length
 
 There are no strict rules regarding file length. But a good rule of thumb is if your file extends past the bottom of your screen, it might be a good idea to refactor it into multiple modules.
+
+### jQuery
+
+[Don't use it.](https://github.com/nefe/You-Dont-Need-jQuery)
