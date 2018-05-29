@@ -24,7 +24,6 @@ class Html extends Component {
 						id="___gatsby"
 						dangerouslySetInnerHTML={{ __html: this.props.body }}
 					/>
-					<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 					{this.props.postBodyComponents}
 				</body>
 			</html>

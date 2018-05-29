@@ -46,19 +46,20 @@ module.exports = {
 			resolve: `gatsby-transformer-remark`,
 			options: {
 				plugins: [
-					'gatsby-remark-prismjs',
-					'gatsby-remark-copy-linked-files',
-					'gatsby-remark-smartypants',
+					`gatsby-remark-prismjs`,
+					`gatsby-remark-copy-linked-files`,
+					`gatsby-remark-smartypants`,
 					{
-						resolve: "gatsby-remark-external-links",
+						resolve: `gatsby-remark-external-links`,
 						options: {
-							target: "_blank",
+							target: `_blank`,
 						}
 					},
 				],
 			},
 		},
 		`docs-pages`,
+		`gatsby-plugin-polyfill-io`,
 		`gatsby-plugin-manifest`,
 		`gatsby-plugin-offline`,
 		`gatsby-plugin-netlify`,
