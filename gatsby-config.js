@@ -62,6 +62,5 @@ module.exports = {
 		`gatsby-plugin-manifest`,
 		`gatsby-plugin-offline`,
 		`gatsby-plugin-netlify`,
-		'watch-css',
 	],
 }
