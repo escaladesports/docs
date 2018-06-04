@@ -20,6 +20,8 @@ public
 .cache
 envdotjs-key
 env.js
+env.key
+env.js.key
 .serverless
 _optimize
 .babelrc
