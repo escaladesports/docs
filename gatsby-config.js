@@ -3,7 +3,7 @@ module.exports = {
 		title: `Escalade Web Engineering Docs`,
 	},
 	plugins: [
-		'gatsby-plugin-styled-jsx-postcss',
+		'gatsby-plugin-esca-css',
 		`gatsby-plugin-sharp`,
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-react-helmet`,
