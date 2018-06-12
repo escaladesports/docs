@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import { SynapseInput, SynapseModal, SynapseConfig } from 'synapse-search'
+import NoSSR from 'react-no-ssr'
 import NavList from './list'
 import logo from '../../img/logo.svg'
 
@@ -10,6 +12,10 @@ class Nav extends React.Component {
 				<div className='logo'>
 					<img src={logo} />
 				</div>
+				<NoSSR>
+					<SynapseInput />
+					<SynapseModal />
+				</NoSSR>
 				<NavList>{ this.props.schema }</NavList>
 				<style jsx>{`
 					@import 'src/css';

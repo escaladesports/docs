@@ -16,7 +16,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "child-process-promise": "^2.2.1",
     "gatsby": "^1.9.247",
     "gatsby-image": "^1.0.51",
     "gatsby-link": "^1.6.40",
@@ -45,6 +44,7 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-helmet": "^5.2.0",
+    "react-no-ssr": "^1.1.0",
     "static-server": "^2.2.1"
   },
   "devDependencies": {}
