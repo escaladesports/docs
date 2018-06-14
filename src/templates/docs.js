@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet'
-import Nav from '../components/nav'
 import Link from 'gatsby-link'
+import Nav from '../components/nav'
 
 class DocsTemplate extends React.Component{
 	render(){
@@ -12,6 +12,7 @@ class DocsTemplate extends React.Component{
 			<Fragment>
 				<Helmet>
 					<title>{content.fields.title} · {data.site.siteMetadata.title}</title>
+					<meta name='description' content={content.excerpt} />
 				</Helmet>
 				<main>
 					<Nav schema={schema} />
@@ -77,6 +78,7 @@ export const query = graphql`
 			slug: { eq: $slug }
 		}){
 			html
+			excerpt(pruneLength: 175)
 			fields{
 				title
 			}

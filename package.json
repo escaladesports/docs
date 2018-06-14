@@ -12,7 +12,7 @@
     "encrypt": "envdotjs encrypt",
     "netlify": "opn https://app.netlify.com/sites/escalade-docs/deploys",
     "patch": "sed -i -e 's/if(c\\.initial) return;/if(!c||c.initial) return;/g' ./node_modules/extract-text-webpack-plugin/index.js",
-    "serve": "cd public && static-server --open --no-cache",
+    "serve": "npm run build && cd public && static-server --open --no-cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -45,8 +45,7 @@
     "react-dom": "^16.4.0",
     "react-helmet": "^5.2.0",
     "react-no-ssr": "^1.1.0",
-    "static-server": "^2.2.1",
-    "synapse-search": "^2.1.6"
+    "static-server": "^2.2.1"
   },
   "devDependencies": {}
 }
