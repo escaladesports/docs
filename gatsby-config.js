@@ -43,6 +43,13 @@ module.exports = {
 			},
 		},
 		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/src/pages`,
+				name: `pages`,
+			},
+		},
+		{
 			resolve: `gatsby-transformer-remark`,
 			options: {
 				plugins: [
@@ -59,6 +66,7 @@ module.exports = {
 			},
 		},
 		`docs-pages`,
+		`gatsby-plugin-markdown-pages`,
 		`gatsby-plugin-polyfill-io`,
 		`gatsby-plugin-manifest`,
 		`gatsby-plugin-offline`,

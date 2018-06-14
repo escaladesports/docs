@@ -1,15 +1,16 @@
 const { createFilePath } = require('gatsby-source-filesystem')
 const { resolve } = require('path')
+const crypto = require('crypto')
 const cwd = process.cwd()
 
 exports.createPages = async ({ graphql, boundActionCreators }) => {
-	const { createPage } = boundActionCreators
-	const component = resolve(`./src/templates/docs.js`)
+	const { createPage, createNode } = boundActionCreators
+	const component = resolve(`./src/templates/default.js`)
 	let res
 	try{
 		res = await graphql(`{
 			allMarkdownRemark(filter: {
-				fileAbsolutePath: { regex: "/docs/" }
+				fileAbsolutePath: { regex: "${cwd}/docs/" }
 			}){
 				edges{
 					node{
@@ -39,9 +40,26 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 	let categories = createCategories(pages)
 	let flatCategories = flattenCategories(categories)
 
-	pages.forEach((obj, key) => {
+	let jsonCategories = {
+		json: JSON.stringify(categories)
+	}
+	console.log(jsonCategories)
+	createNode(Object.assign({
+		id: `docsSchema`,
+		parent: null,
+		children: [],
+		internal: {
+			type: `DocsSchema`,
+			contentDigest: crypto
+				.createHash('md5')
+				.update(JSON.stringify(jsonCategories))
+				.digest('hex')
+		}
+	}, jsonCategories))
+
+	pages.forEach((obj) => {
 		obj = obj.node
-		let { slug, order } = obj.fields
+		let { slug } = obj.fields
 		let previous
 		let next
 		flatCategories.forEach((cat, key) => {
@@ -62,7 +80,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 				slug,
 				previous,
 				next,
-				schema: categories,
+				//schema: categories,
 			},
 		})
 	})
@@ -74,7 +92,7 @@ function flattenCategories(arr, res = []){
 			slug: item.slug,
 			title: item.title,
 		})
-		if(item.contents.length){
+		if (item.contents.length) {
 			flattenCategories(item.contents, res)
 		}
 	})

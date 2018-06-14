@@ -7,15 +7,17 @@ class DocsTemplate extends React.Component{
 	render(){
 		const data = this.props.data
 		const content = data.markdownRemark
-		const { schema, next, previous } = this.props.pathContext
+		const fm = content.frontmatter
+		const { next, previous } = this.props.pathContext
+		const title = fm.title ? fm.title : content.fields.title
 		return(
 			<Fragment>
 				<Helmet>
-					<title>{content.fields.title} · {data.site.siteMetadata.title}</title>
+					<title>{title} · {data.site.siteMetadata.title}</title>
 					<meta name='description' content={content.excerpt} />
 				</Helmet>
 				<main>
-					<Nav schema={schema} />
+					<Nav schema={JSON.parse(data.docsSchema.json)} />
 					<article>
 						<div className='content'>
 							<div dangerouslySetInnerHTML={{ __html: content.html }} />
@@ -79,6 +81,9 @@ export const query = graphql`
 		}){
 			html
 			excerpt(pruneLength: 175)
+			frontmatter{
+				title
+			}
 			fields{
 				title
 			}
@@ -100,6 +105,10 @@ export const query = graphql`
 			siteMetadata {
 				title
 			}
+		}
+
+		docsSchema(id: { eq: "docsSchema" }){
+			json
 		}
 
 	}
