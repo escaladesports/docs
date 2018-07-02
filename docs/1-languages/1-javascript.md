@@ -116,3 +116,7 @@ There are no strict rules regarding file length. But a good rule of thumb is if 
 ### jQuery
 
 [Don't use it.](https://github.com/nefe/You-Dont-Need-jQuery)
+
+### ESLint
+
+Projects usually include an ESLint config file to help your text editor detect or even automatically transform a file using these rules when a file is saved. Configuring ESLint in your text editor may be differen depending on what you use. At the time of writing, ESLint plugins exist for [VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Sublime Text](https://github.com/SublimeLinter/SublimeLinter-eslint), and [Atom](https://atom.io/packages/linter-eslint).

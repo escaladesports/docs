@@ -4046,9 +4046,9 @@ gatsby-plugin-manifest@^1.0.22:
     bluebird "^3.5.0"
     sharp "^0.20.1"
 
-gatsby-plugin-markdown-pages@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-markdown-pages/-/gatsby-plugin-markdown-pages-1.0.1.tgz#96d94d36d8ad3f68cdcdbb3de1ed958231caad53"
+gatsby-plugin-markdown-pages@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-markdown-pages/-/gatsby-plugin-markdown-pages-1.0.2.tgz#681b1eb2c841fed054592f9b5265c30284954ff0"
   dependencies:
     babel-runtime "^6.26.0"
 

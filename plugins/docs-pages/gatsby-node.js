@@ -43,7 +43,6 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 	let jsonCategories = {
 		json: JSON.stringify(categories)
 	}
-	console.log(jsonCategories)
 	createNode(Object.assign({
 		id: `docsSchema`,
 		parent: null,
