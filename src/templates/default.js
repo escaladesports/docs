@@ -33,7 +33,7 @@ class DocsTemplate extends React.Component{
 				<style jsx>{`
 					@import 'src/css';
 					.prev, .next{
-						margin-top: 10px;
+						margin-top: 40px;
 					}
 					@media(min-width:1000px){
 						.prevNext{

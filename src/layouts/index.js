@@ -27,6 +27,7 @@ class Layout extends React.Component{
 					.content{
 						max-width: 800px;
 						padding: 20px;
+						padding-bottom: 85px;
 						margin: auto;
 					}
 					article{
