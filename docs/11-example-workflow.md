@@ -12,10 +12,10 @@ It might look something like this when making revisions to a web application pro
 - `yarn dev` (Start up a server locally for development)
 - Make changes to the code as needed
 - `git push origin contact-page` (Push your development branch into the repository)
-- Create a pull request to merge the contact-page branch into the master branch.
-- At this point Netlify will build out a preview of the merge.
-- Assuming everything functions as expected, merge the pull request to deploy your changes live.
-- The feature branch is deleted once the merge into master is successful.
+- Create a pull request to merge the contact-page branch into the master branch
+- At this point Netlify will build out a preview of the merge
+- Assuming everything functions as expected, merge the pull request to deploy your changes live
+- The feature branch is deleted once the merge into master is successful
 
 If making revisions to a react component, javascript module, or serverless function, the steps would be the same up until `yarn dev` since no development server is needed. Instead code is edited and the engineer would run `yarn test` to unit test the new changes. Assuming all tests pass, the branch can be deployed like normal and merged into the master branch. Tests will also be run before automatic deployment, but it can be easier to debug any errors if you run your tests locally as well.
 
