@@ -66,6 +66,7 @@ module.exports = {
 			},
 		},
 		`docs-pages`,
+		`page-state`,
 		`gatsby-plugin-markdown-pages`,
 		`gatsby-plugin-polyfill-io`,
 		`gatsby-plugin-manifest`,
