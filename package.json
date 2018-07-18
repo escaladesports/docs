@@ -10,6 +10,7 @@
     "dev": "npm run clean:nodeCache &&  npm run dev:gatsby",
     "dev:gatsby": "gatsby develop --open",
     "encrypt": "envdotjs encrypt",
+    "live": "opn https://escalade-docs.netlify.com/",
     "netlify": "opn https://app.netlify.com/sites/escalade-docs/deploys",
     "patch": "sed -i -e 's/if(c\\.initial) return;/if(!c||c.initial) return;/g' ./node_modules/extract-text-webpack-plugin/index.js",
     "serve": "npm run build && cd public && static-server --open --no-cache",
