@@ -48,9 +48,15 @@ class NavList extends React.Component {
 									padding: 2px 0;
 									color: #333;
 								}
+								:global(a:hover){
+									color: var(--colorPrimaryActive);
+								}
 							}
 							.active{
 								:global(> a){
+									color: var(--colorPrimary);
+								}
+								:global(a:hover){
 									color: var(--colorPrimary);
 								}
 							}
