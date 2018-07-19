@@ -9,6 +9,12 @@ module.exports = {
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-remove-trailing-slashes`,
 		{
+			resolve: `gatsby-plugin-html-attributes`,
+			options: {
+				lang: `en`,
+			},
+		},
+		{
 			resolve: `gatsby-plugin-favicon`,
 			options: {
 				logo: `./src/img/icon.png`,
