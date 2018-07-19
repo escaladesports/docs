@@ -9,12 +9,6 @@ module.exports = {
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-remove-trailing-slashes`,
 		{
-			resolve: `gatsby-plugin-html-attributes`,
-			options: {
-				lang: `en`,
-			},
-		},
-		{
 			resolve: `gatsby-plugin-favicon`,
 			options: {
 				logo: `./src/img/icon.png`,
@@ -33,12 +27,14 @@ module.exports = {
 			}
 		},
 		{
-			resolve: `gatsby-plugin-google-fonts`,
+			resolve: `gatsby-plugin-web-font-loader`,
 			options: {
-				fonts: [
-					`oswald`,
-					`open sans`,
-				]
+				google: {
+					families: [
+						`Oswald`,
+						`Open Sans`,
+					]
+				}
 			}
 		},
 		{
@@ -90,5 +86,11 @@ module.exports = {
 		`gatsby-plugin-offline`,
 		`gatsby-plugin-netlify`,
 		`gatsby-plugin-netlify-cache`,
+		{
+			resolve: `gatsby-plugin-html-attributes`,
+			options: {
+				lang: `en`,
+			},
+		},
 	],
 }
