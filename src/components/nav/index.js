@@ -13,7 +13,7 @@ class Nav extends React.Component {
 		return (
 			<nav>
 				<div className='logo'>
-					<img src={logo} />
+					<img src={logo} alt='Escalade Sports' />
 				</div>
 				<NavList>{ this.props.schema }</NavList>
 				<style jsx>{`
