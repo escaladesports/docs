@@ -69,8 +69,20 @@ module.exports = {
 		`page-state`,
 		`gatsby-plugin-markdown-pages`,
 		`gatsby-plugin-polyfill-io`,
-		`gatsby-plugin-manifest`,
+		{
+			resolve: `gatsby-plugin-manifest`,
+			options: {
+				name: `Escalade Web Engineering Docs`,
+				short_name: `Escalade`,
+				start_url: `/`,
+				background_color: `#fff`,
+				theme_color: `#52b8fc`,
+				display: `minimal-ui`,
+				icon: `src/img/icon.png`
+			},
+		},
 		`gatsby-plugin-offline`,
 		`gatsby-plugin-netlify`,
+		`gatsby-plugin-netlify-cache`,
 	],
 }
