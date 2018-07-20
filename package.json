@@ -52,7 +52,7 @@
     "react-dom": "^16.4.0",
     "react-helmet": "^5.2.0",
     "react-no-ssr": "^1.1.0",
-    "statable": "^0.3.1",
+    "statable": "^0.3.2",
     "static-server": "^2.2.1"
   }
 }

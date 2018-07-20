@@ -10172,9 +10172,9 @@ stat-mode@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/stat-mode/-/stat-mode-0.2.2.tgz#e6c80b623123d7d80cf132ce538f346289072502"
 
-statable@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/statable/-/statable-0.3.1.tgz#79c004b2b736a82c15d63bd05c60a77e2cf4a027"
+statable@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/statable/-/statable-0.3.2.tgz#d024c430a6b0c95c8b452f569f4018758f54f555"
 
 state-toggle@^1.0.0:
   version "1.0.1"
