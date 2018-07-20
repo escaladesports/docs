@@ -56,7 +56,7 @@ class Layout extends React.Component{
 					}
 					.icon{
 						--spacing: 5px;
-						position: absolute;
+						position: fixed;
 						top: var(--spacing);
 						left: var(--spacing);
 					}
