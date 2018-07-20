@@ -24,7 +24,7 @@ class DocsTemplate extends React.Component{
 							href={`https://github.com/escaladesports/docs.escaladesports.com/blob/master/docs/${this.props.pathContext.fileName}`}
 							target='_blank'
 						>
-							<img src={pencil} className='pencil' /> Edit on GitHub
+							<img src={pencil} className='pencil' /> edit this page on GitHub
 						</a>
 					</div>
 					<div className='prevNext'>
@@ -47,7 +47,7 @@ class DocsTemplate extends React.Component{
 					}
 					.edit{
 						opacity: .6;
-						font-size: .9em;
+						font-size: .8em;
 						margin-top: 40px;
 						text-align: right;
 						a{
