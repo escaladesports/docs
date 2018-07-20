@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet'
 import Nav from '../components/nav'
+import { Subscribe } from 'statable'
+import navState from '../state/nav'
+import { Boring } from 'react-burgers'
 
 class Layout extends React.Component{
 	render(){
@@ -13,17 +16,35 @@ class Layout extends React.Component{
 				</Helmet>
 				<main>
 					<Nav schema={JSON.parse(data.docsSchema.json)} />
-					<article>
-						<div className='content'>
-							{children()}
-						</div>
-					</article>
+					<Subscribe to={navState}>
+						{({ open }) => (
+							<Fragment>
+								<div className={`icon ${open ? `active` : ``}`}>
+									<Boring
+										width={30}
+										lineHeight={3}
+										lineSpacing={5}
+										active={open}
+										onClick={() => navState.setState({ open: !open })}
+										/>
+								</div>
+								<article className={open ? `open` : ``}>
+									<div className='content'>
+										{children()}
+									</div>
+								</article>
+							</Fragment>
+						)}
+					</Subscribe>
 				</main>
 				<style jsx global>{`
 					@import 'src/css/global';
 				`}</style>
 				<style jsx>{`
 					@import 'src/css';
+					main{
+						position: relative;
+					}
 					.content{
 						max-width: 800px;
 						padding: 20px;
@@ -32,7 +53,15 @@ class Layout extends React.Component{
 					}
 					article{
 						width: 100%;
-						padding-left: var(--navWidth);
+					}
+					.icon{
+						--spacing: 5px;
+						position: absolute;
+						top: var(--spacing);
+						left: var(--spacing);
+					}
+					.active{
+						transform: translateX(var(--navWidth));
 					}
 					@media(min-width:1000px){
 						.prevNext{
@@ -47,6 +76,9 @@ class Layout extends React.Component{
 						}
 						.next{
 							float: right;
+						}
+						.open{
+							padding-left: var(--navWidth);
 						}
 					}
 				`}</style>
