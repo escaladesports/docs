@@ -71,7 +71,8 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 				}
 			}
 		})
-		let fileName = obj.fileAbsolutePath.split(`/`).pop()
+		let fileName = obj.fileAbsolutePath.replace(cwd, ``)
+		console.log(fileName)
 
 		createPage({
 			path: slug,
