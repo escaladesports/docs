@@ -71,15 +71,16 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 				}
 			}
 		})
+		let fileName = obj.fileAbsolutePath.split(`/`).pop()
 
 		createPage({
 			path: slug,
 			component,
 			context: {
+				fileName,
 				slug,
 				previous,
 				next,
-				//schema: categories,
 			},
 		})
 	})

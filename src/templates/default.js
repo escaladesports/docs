@@ -21,7 +21,7 @@ class DocsTemplate extends React.Component{
 					<div dangerouslySetInnerHTML={{ __html: content.html }} />
 					<div className='edit'>
 						<a
-							href='https://github.com/escaladesports/docs.escaladesports.com/edit/master/docs/10-browser-support.md'
+							href={`https://github.com/escaladesports/docs.escaladesports.com/blob/master/docs/${this.props.pathContext.fileName}`}
 							target='_blank'
 						>
 							<img src={pencil} className='pencil' /> Edit on GitHub
