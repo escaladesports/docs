@@ -46,16 +46,16 @@ class DocsTemplate extends React.Component{
 						margin-top: 40px;
 					}
 					.edit{
-						opacity: .6;
 						font-size: .8em;
 						margin-top: 40px;
 						text-align: right;
 						a{
 							color: var(--colorSecondary);
 							text-decoration: none;
-						}
-						:hover{
-							opacity: 1;
+							opacity: .6;
+							:hover{
+								opacity: 1;
+							}
 						}
 					}
 					.pencil{
